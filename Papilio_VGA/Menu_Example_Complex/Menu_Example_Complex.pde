@@ -86,12 +86,6 @@ void setup()
   menu.toRoot();
   lcd.setCursor(0,0);  
   lcd.print("www.coagula.org");
-  lcd.setCursor(0,1);
-  lcd.print("www.papilio.cc");
-  lcd.setCursor(0,2);
-  lcd.print("www.papilio.cc");
-  lcd.setCursor(0,3);
-  lcd.print("www.papilio.cc");  
 
 }  // setup()...
 
@@ -116,21 +110,16 @@ void menuChanged(MenuChangeEvent changed){
   }else if(newMenuItem.getName()=="Item1"){
       lcd.print("Item1           ");
   }else if(newMenuItem.getName()=="Item1SubItem1"){
-      lcd.setCursor(0,2);
       lcd.print("Item1SubItem1");
   }else if(newMenuItem.getName()=="Item1SubItem2"){
-      lcd.setCursor(0,2);
       lcd.print("Item1SubItem2   ");
   }else if(newMenuItem.getName()=="Item2"){
       lcd.print("Item2           ");
   }else if(newMenuItem.getName()=="Item2SubItem1"){
-      lcd.setCursor(0,2);  
       lcd.print("Item2SubItem1   ");
   }else if(newMenuItem.getName()=="Item2SubItem2"){
-      lcd.setCursor(0,2);
       lcd.print("Item2SubItem2   ");
   }else if(newMenuItem.getName()=="Item2SubItem3"){
-      lcd.setCursor(0,2);
       lcd.print("Item2SubItem3   ");
   }else if(newMenuItem.getName()=="Item3"){
       lcd.print("Item3           ");
