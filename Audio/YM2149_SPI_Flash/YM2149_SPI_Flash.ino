@@ -15,6 +15,9 @@
  * Connect an Audio Wing to AL
  * User an Arcade MegaWing
 
+ *******IMPORTANT********************
+ Be sure to load the ZPUino "Apollo" variant to the Papilio's SPI Flash before loading this sketch.
+
  created 2012
  by Jack Gassett from Zetris code example
  http://www.gadgetfactory.net
@@ -27,7 +30,7 @@
 
 // AUDIO STUFF
 
-#define YM2149BASE IO_SLOT(11)
+#define YM2149BASE IO_SLOT(13)
 #define YM2149REG(x) REGISTER(YM2149BASE,x)
 
 struct ymframe {
@@ -38,13 +41,13 @@ CircularBuffer<ymframe,2> YMaudioBuffer;
 
 SmallFSFile ymaudiofile;
 
-#define AUDIOPIN WING_C_8           //For Audio-MIDI Wing connected to CH
-#define AUDIOPINEXTRA WING_C_9
+//#define AUDIOPIN WING_C_8           //For Audio-MIDI Wing connected to CH
+//#define AUDIOPINEXTRA WING_C_9
 
 //#define AUDIOPIN WING_A_7         //For Audio Wing connected to AL
 
-//#define AUDIOPIN WING_A_15        //For Arcade MegaWing
-//#define AUDIOPINEXTRA WING_A_13
+#define AUDIOPIN WING_A_15        //For Arcade MegaWing
+#define AUDIOPINEXTRA WING_A_13
 
 
 static unsigned int timerTicks = 0;
@@ -71,12 +74,12 @@ void setup()
 
 	pinMode(AUDIOPIN,OUTPUT);
 	digitalWrite(AUDIOPIN,HIGH);
-	outputPinForFunction(AUDIOPIN, 14);
+	outputPinForFunction(AUDIOPIN, 9);
 	pinModePPS(AUDIOPIN, HIGH);
 
 #ifdef AUDIOPINEXTRA
 	pinMode(AUDIOPINEXTRA,OUTPUT);
-	outputPinForFunction(AUDIOPINEXTRA, 14);
+	outputPinForFunction(AUDIOPINEXTRA, 9);
 	pinModePPS(AUDIOPINEXTRA, HIGH);
 #endif
 	if (SmallFS.begin()<0) {
