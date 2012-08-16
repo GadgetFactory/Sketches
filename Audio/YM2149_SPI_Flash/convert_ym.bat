@@ -26,5 +26,5 @@ ymTool.exe c audio.ym
 REM ymdump "%~n1.dat"
 ymdump audio.BIN
 copy audio.BIN.dat ..\smallfs\audio.dat
-rm audio.*
+del audio.*
 pause
