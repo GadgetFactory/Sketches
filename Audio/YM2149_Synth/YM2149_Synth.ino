@@ -82,6 +82,10 @@ void loop(){
 
 void HandleNoteOn(byte channel, byte pitch, byte velocity) { 
 
+  // Some keyboards send Note On with velocity 0 instead of Note Off.	
+  if (velocity == 0)	
+    return HandleNoteOff(channel, pitch, velocity);
+
   // Do whatever you want when you receive a Note On.
   Serial.print("Note Received: ");
   Serial.println(pitch);
